@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 sys.path.append(os.path.dirname(__file__))
 
 from api.requests import router as requests_router
+from api.categories import router as categories_router
 
 # Create FastAPI app
 fastapi_app = FastAPI(
@@ -29,6 +30,7 @@ fastapi_app.add_middleware(
 
 # Include routers
 fastapi_app.include_router(requests_router)
+fastapi_app.include_router(categories_router)
 
 @fastapi_app.get("/")
 async def root():

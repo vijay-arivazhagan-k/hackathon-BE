@@ -46,7 +46,9 @@ def create_combined_app():
     
     # Include FastAPI routers for request management
     from api.requests import router as requests_router
+    from api.categories import router as categories_router
     main_app.include_router(requests_router)
+    main_app.include_router(categories_router)
     
     @main_app.get("/")
     async def root():
