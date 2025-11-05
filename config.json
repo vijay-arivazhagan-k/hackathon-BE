@@ -1,0 +1,13 @@
+{
+    "model": {
+        "name": "naver-clova-ix/donut-base-finetuned-cord-v2",
+        "task_prompt": "<s_cord-v2>",
+        "max_length": 512
+    },
+    "processing": {
+        "input_path": "./invoices",
+        "output_path": "./output",
+        "supported_formats": [".jpg", ".jpeg", ".png", ".pdf"]
+    },
+    "device": "cuda"
+}

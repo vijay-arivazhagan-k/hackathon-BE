@@ -1,0 +1,8 @@
+# Place your invoice images here
+# Supported formats: .jpg, .jpeg, .png
+
+# Example structure:
+# invoices/
+#   ├── invoice_001.jpg
+#   ├── invoice_002.png
+#   └── receipt_003.jpeg
