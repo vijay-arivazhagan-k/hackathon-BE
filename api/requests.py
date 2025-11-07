@@ -54,48 +54,65 @@ async def create_request(request: RequestCreate):
 async def list_requests(
     page: int = Query(default=1, ge=1),
     page_size: int = Query(default=20, ge=1, le=100),
-    status: Optional[str] = Query(default=None, description="Filter by status: Pending, Approved, Rejected, All")
+    status: Optional[str] = Query(default=None, description="Filter by status: Pending, Approved, Rejected, All"),
+    start: Optional[str] = Query(default=None, description="Start creation date filter (YYYY-MM-DD)"),
+    end: Optional[str] = Query(default=None, description="End creation date filter (YYYY-MM-DD)"),
+    category_id: Optional[str] = Query(default=None, description="Category name filter")
 ):
-    """
-    List all requests with pagination and filters
-    
+    """List all requests with pagination and filters
+
+    Date range filters now apply to the request creation timestamp (`CREATED_ON`) rather than invoice date.
+
     Args:
         page: Page number (default: 1)
         page_size: Items per page (default: 20, max: 100)
         status: Status filter (Pending, Approved, Rejected, All)
-        
+        start: Start creation date filter (YYYY-MM-DD)
+        end: End creation date filter (YYYY-MM-DD)
+        category_id: Category name filter
+
     Returns:
         PaginatedRequests: Paginated requests
     """
-    requests, total = service.list_requests(page, page_size, status)
+    print(f"🔍 API received filters: page={page}, page_size={page_size}, status={status}, start={start}, end={end}, category_id={category_id}")
+    requests, total = service.list_requests(page, page_size, status, start, end, category_id)
+    
+    print(f"✅ API got {len(requests)} requests from service, total={total}")
     
     # Convert to response format - returns camelCase field names
     items = [RequestResponse.model_validate(req) for req in requests]
     
-    return JSONResponse(content={
+    print(f"✅ API converted to {len(items)} response items")
+    
+    response_data = {
         "items": serialize_response(items),
         "page": page,
         "page_size": page_size,
         "total": total
-    })
+    }
+    
+    print(f"✅ API returning: {len(response_data['items'])} items, page={page}, total={total}")
+    
+    return JSONResponse(content=response_data)
 
 
 @router.get("/export", response_class=StreamingResponse)
 async def export_requests(
-    start: Optional[str] = Query(default=None, description="Start date (YYYY-MM-DD)"),
-    end: Optional[str] = Query(default=None, description="End date (YYYY-MM-DD)"),
+    start: Optional[str] = Query(default=None, description="Start creation date (YYYY-MM-DD)"),
+    end: Optional[str] = Query(default=None, description="End creation date (YYYY-MM-DD)"),
     category_id: Optional[str] = Query(default=None, description="Category name"),
     status: Optional[str] = Query(default=None, description="Filter by status: Pending, Approved, Rejected, All")
 ):
-    """
-    Export requests as Excel file
-    
+    """Export requests as Excel file
+
+    Date range filters are applied to `CREATED_ON` (request creation timestamp).
+
     Args:
-        start: Start date filter (YYYY-MM-DD)
-        end: End date filter (YYYY-MM-DD)
+        start: Start creation date filter (YYYY-MM-DD)
+        end: End creation date filter (YYYY-MM-DD)
         category_id: Category filter
         status: Status filter
-        
+
     Returns:
         StreamingResponse: Excel file
     """
@@ -255,17 +272,24 @@ async def get_request_history(request_id: int):
 
 
 @router.get("/insights/summary", response_model=InsightsResponse)
-async def get_insights(duration: Optional[str] = Query(default=None, description="Duration filter")):
-    """
-    Get request insights/statistics
-    
+async def get_insights(
+    start: Optional[str] = Query(default=None, description="Start creation date filter (YYYY-MM-DD)"),
+    end: Optional[str] = Query(default=None, description="End creation date filter (YYYY-MM-DD)"),
+    duration: Optional[str] = Query(default=None, description="Duration filter (deprecated, use start/end)")
+):
+    """Get request insights/statistics
+
+    Date range filters are applied to `CREATED_ON`.
+
     Args:
-        duration: Duration filter (not implemented yet)
-        
+        start: Start creation date filter (YYYY-MM-DD)
+        end: End creation date filter (YYYY-MM-DD)
+        duration: Duration filter (deprecated)
+
     Returns:
         InsightsResponse: Insights data
     """
-    insights = service.get_insights(duration)
+    insights = service.get_insights(start_date=start, end_date=end, duration=duration)
     return JSONResponse(content={
         "total": insights['total'],
         "approved": insights['approved'],

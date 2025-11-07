@@ -6,22 +6,34 @@ from datetime import datetime
 from typing import Optional, List, Tuple
 from contextlib import contextmanager
 
+# Configure logging
+from utils.logger_config import get_logger
+logger = get_logger(__name__)
+
 
 class DatabaseManager:
     """Database manager for SQLite3 in-memory database"""
     
     def __init__(self):
+        logger.info("[ENTER] DatabaseManager.__init__")
         self._connection = None
         self._initialize_database()
+        logger.info("[EXIT] DatabaseManager.__init__")
     
     def _initialize_database(self):
         """Initialize the database with required tables"""
-        self._connection = sqlite3.connect(':memory:', check_same_thread=False)
-        self._connection.row_factory = sqlite3.Row  # Enable column access by name
-        
-        # Create tables
-        self._create_tables()
-        print("✓ Database initialized with IV_TR_REQUESTS and IV_TR_REQUEST_HISTORY tables")
+        logger.info("[ENTER] _initialize_database")
+        try:
+            self._connection = sqlite3.connect(':memory:', check_same_thread=False)
+            self._connection.row_factory = sqlite3.Row  # Enable column access by name
+            
+            # Create tables
+            self._create_tables()
+            logger.info("✓ Database initialized with IV_TR_REQUESTS and IV_TR_REQUEST_HISTORY tables")
+            logger.info("[EXIT] _initialize_database")
+        except Exception as e:
+            logger.error(f"[ERROR] _initialize_database: {type(e).__name__}: {str(e)}", exc_info=True)
+            raise
     
     def _create_tables(self):
         """Create the required tables"""
@@ -173,7 +185,8 @@ class RequestRepository:
     def create_request(self, user_id: str, total_amount: Optional[float], 
                       invoice_date: Optional[str], invoice_number: Optional[str],
                       category_name: Optional[str], comments: Optional[str] = None,
-                      approval_type: str = 'Auto', created_by: str = 'AI') -> Request:
+                      approval_type: str = 'Auto', created_by: str = 'AI',
+                      status: str = 'Pending') -> Request:
         """Create a new request"""
         with self.db.get_cursor() as cursor:
             current_time = datetime.now().isoformat()
@@ -185,7 +198,7 @@ class RequestRepository:
                  CREATED_BY, UPDATED_BY)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (user_id, total_amount, invoice_date, invoice_number, category_name,
-                  'Pending', comments, approval_type, current_time, current_time,
+                  status, comments, approval_type, current_time, current_time,
                   created_by, created_by))
             
             request_id = cursor.lastrowid
@@ -193,7 +206,7 @@ class RequestRepository:
             # Add to history
             self._add_to_history(cursor, request_id, user_id, total_amount, 
                                invoice_date, invoice_number, category_name,
-                               'Pending', comments, approval_type, created_by)
+                               status, comments, approval_type, created_by)
             
             # Fetch and return the created request
             cursor.execute('SELECT * FROM IV_TR_REQUESTS WHERE ID = ?', (request_id,))
@@ -240,21 +253,58 @@ class RequestRepository:
             return Request(row)
     
     def list_requests(self, page: int = 1, page_size: int = 20,
-                     status_filter: Optional[str] = None) -> Tuple[List[Request], int]:
-        """List requests with pagination and optional status filter"""
+                     status_filter: Optional[str] = None,
+                     start_date: Optional[str] = None,
+                     end_date: Optional[str] = None,
+                     category_id: Optional[str] = None) -> Tuple[List[Request], int]:
+        """List requests with pagination and optional filters"""
         with self.db.get_cursor() as cursor:
             # Build query with filters
-            where_clause = ""
+            where_clauses = []
             params = []
             
             if status_filter and status_filter.lower() != 'all':
-                where_clause = "WHERE CURRENT_STATUS = ?"
+                where_clauses.append("CURRENT_STATUS = ?")
                 params.append(status_filter.title())
+            
+            # Add date range filters
+            # NOTE: Date filtering is now based strictly on CREATED_ON (request creation timestamp)
+            if start_date:
+                if 'T' in start_date:
+                    start_date = start_date.split('T')[0]
+                where_clauses.append("DATE(CREATED_ON) >= DATE(?)")
+                params.append(start_date)
+                print(f"🔍 Added start_date filter: DATE(CREATED_ON) >= DATE('{start_date}')")
+            
+            if end_date:
+                if 'T' in end_date:
+                    end_date = end_date.split('T')[0]
+                where_clauses.append("DATE(CREATED_ON) <= DATE(?)")
+                params.append(end_date)
+                print(f"🔍 Added end_date filter: DATE(CREATED_ON) <= DATE('{end_date}')")
+            
+            # Add category filter
+            if category_id and category_id.lower() != 'all':
+                where_clauses.append("CATEGORY_NAME = ?")
+                params.append(category_id)
+            
+            where_clause = "WHERE " + " AND ".join(where_clauses) if where_clauses else ""
             
             # Get total count
             count_query = f"SELECT COUNT(*) as total FROM IV_TR_REQUESTS {where_clause}"
+            print(f"🔍 DB Count Query: {count_query}")
+            print(f"🔍 DB Params: {params}")
             cursor.execute(count_query, params)
             total = cursor.fetchone()['total']
+            
+            print(f"🔍 DB Query: Found {total} total requests with filters: status={status_filter}, start={start_date}, end={end_date}, category={category_id}")
+            
+            # Debug: Print all rows without filter
+            cursor.execute("SELECT ID, INVOICE_DATE, CURRENT_STATUS, CATEGORY_NAME FROM IV_TR_REQUESTS")
+            all_rows = cursor.fetchall()
+            print(f"🔍 DB Total rows without filter: {len(all_rows)}")
+            for row in all_rows[:5]:  # Print first 5
+                print(f"  - ID={row['ID']}, Date={row['INVOICE_DATE']}, Status={row['CURRENT_STATUS']}, Category={row['CATEGORY_NAME']}")
             
             # Get paginated results
             offset = (page - 1) * page_size
@@ -267,6 +317,10 @@ class RequestRepository:
             
             cursor.execute(query, params)
             rows = cursor.fetchall()
+            
+            print(f"🔍 DB Query Result: Retrieved {len(rows)} rows")
+            for row in rows:
+                print(f"  - Request ID={row['ID']}, Date={row['INVOICE_DATE']}, Status={row['CURRENT_STATUS']}, Category={row['CATEGORY_NAME']}")
             
             requests = [Request(row) for row in rows]
             return requests, total
@@ -294,11 +348,15 @@ class RequestRepository:
             params = []
             
             if start_date:
-                where_parts.append("INVOICE_DATE >= ?")
+                if 'T' in start_date:
+                    start_date = start_date.split('T')[0]
+                where_parts.append("DATE(CREATED_ON) >= DATE(?)")
                 params.append(start_date)
             
             if end_date:
-                where_parts.append("INVOICE_DATE <= ?")
+                if 'T' in end_date:
+                    end_date = end_date.split('T')[0]
+                where_parts.append("DATE(CREATED_ON) <= DATE(?)")
                 params.append(end_date)
             
             if category and category.lower() != 'all':
@@ -321,16 +379,26 @@ class RequestRepository:
             
             return [Request(row) for row in rows]
     
-    def get_insights(self, duration_filter: Optional[str] = None) -> dict:
-        """Get request statistics"""
+    def get_insights(self, start_date: Optional[str] = None, end_date: Optional[str] = None, duration_filter: Optional[str] = None) -> dict:
+        """Get request statistics with date filters"""
         with self.db.get_cursor() as cursor:
-            # Build date filter if needed
-            where_clause = ""
+            # Build date filter
+            where_clauses = []
             params = []
             
-            if duration_filter:
-                # This is a simplified implementation - you can enhance with actual date filtering
-                pass
+            if start_date:
+                if 'T' in start_date:
+                    start_date = start_date.split('T')[0]
+                where_clauses.append("DATE(CREATED_ON) >= DATE(?)")
+                params.append(start_date)
+            
+            if end_date:
+                if 'T' in end_date:
+                    end_date = end_date.split('T')[0]
+                where_clauses.append("DATE(CREATED_ON) <= DATE(?)")
+                params.append(end_date)
+            
+            where_clause = "WHERE " + " AND ".join(where_clauses) if where_clauses else ""
             
             # Get status counts
             cursor.execute(f'''

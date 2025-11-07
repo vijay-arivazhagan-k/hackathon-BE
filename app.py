@@ -21,9 +21,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 from invoice_processor import InvoiceProcessor
 from teams_notifier import TeamsNotifier
+import getpass
 
 # Import request service for database operations
 from services.request_service import RequestService
+
+# Configure logging
+from utils.logger_config import get_logger
+logger = get_logger(__name__)
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -143,12 +148,29 @@ class InvoiceFileHandler(FileSystemEventHandler):
                 invoice_data = result['data']
                 base_name = Path(filename).stem
                 
-                # Check approval status
-                approval_info = self.processor.check_approval_status(invoice_data)
-                approval_status = approval_info['status']
+                # Use approval evaluator to get decision with category lookup
+                from services.approval_evaluator import ApprovalEvaluator
+                evaluator = ApprovalEvaluator()
+                eval_result = evaluator.evaluate_with_category(filename, invoice_data)
+                
+                approval_status = eval_result['decision'].lower()
+                approval_info = {
+                    'status': approval_status,
+                    'approved': approval_status == 'approved',
+                    'item_count': len(invoice_data.get('items', [])),
+                    'total_amount': invoice_data.get('total_amount', 0),
+                    'reasons': eval_result['reasons'],
+                    'category': eval_result['category'],
+                    'category_found': eval_result.get('category_found', False)
+                }
                 
                 # Determine output folder based on approval status
-                output_folder = APPROVED_FOLDER if approval_status == 'approved' else PENDING_FOLDER
+                if approval_status == 'approved':
+                    output_folder = APPROVED_FOLDER
+                elif approval_status == 'rejected':
+                    output_folder = REJECTED_FOLDER
+                else:  # pending or any other status
+                    output_folder = PENDING_FOLDER
                 
                 # Generate output filenames
                 json_output = os.path.join(output_folder, f"{base_name}_output.json")
@@ -156,10 +178,15 @@ class InvoiceFileHandler(FileSystemEventHandler):
                 output_image = os.path.join(output_folder, filename)
                 
                 # Prepare enhanced JSON output with approval info
+                # Get local OS username and attach to invoice details
+                username = getpass.getuser()
+                print("Logged in user:", username)
+
                 enhanced_data = {
                     **invoice_data,
                     'approval_status': approval_status,
-                    'approval_info': approval_info
+                    'approval_info': approval_info,
+                    'user_id': username
                 }
                 
                 # Save JSON output
@@ -168,8 +195,9 @@ class InvoiceFileHandler(FileSystemEventHandler):
                     json.dump(enhanced_data, f, indent=2, ensure_ascii=False)
                 print(f"✓ JSON saved: {json_output}")
                 
-                # Create Excel file with approval info
-                self.processor.export_to_excel(invoice_data, excel_output, approval_info)
+                # Create Excel file with approval info (include user_id)
+                # Pass enhanced_data so processed/user info is included
+                self.processor.export_to_excel(enhanced_data, excel_output, approval_info)
                 print(f"✓ Excel saved: {excel_output}")
                 
                 # Move original image to appropriate folder
@@ -180,6 +208,7 @@ class InvoiceFileHandler(FileSystemEventHandler):
                 print(f"\n📋 Approval Status: {approval_status.upper()}")
                 print(f"   Items: {approval_info['item_count']} | Amount: ${approval_info['total_amount']:.2f}")
                 print(f"   Reason: {'; '.join(approval_info['reasons'])}")
+                print(f"   Category: {eval_result['category']} (Found: {approval_info['category_found']})")
                 
                 # Send Teams notification for pending invoices
                 if approval_status == 'pending':
@@ -192,28 +221,35 @@ class InvoiceFileHandler(FileSystemEventHandler):
                         output_image
                     )
                 
-                # Insert request into database after successful processing
+                # Insert request into database after successful processing (for all statuses)
                 try:
                     req_service = get_request_service()
-                    # Extract category from filename (before file extension)
-                    category_name = base_name.split('_')[0] if '_' in base_name else 'General'
+                    # Category name already extracted by evaluator
+                    category_name = eval_result['category']
                     enhanced_data['category_name'] = category_name
                     
-                    # Determine user ID (could be extracted from filename or default)
-                    user_id = enhanced_data.get('user_id', 'SYSTEM')
+                    # Use the OS username as the request owner (overrides missing values)
+                    user_id = enhanced_data.get('user_id') or getpass.getuser()
                     
-                    # Create request in database
+                    # Format approval reasons as comments
+                    approval_reasons = '; '.join(eval_result['reasons'])
+                    comments = f"AI Evaluation: {approval_reasons}"
+
+                    # Create request in database with final approval status (Approved/Pending/Rejected)
                     db_request = req_service.create_request_from_invoice(
                         user_id=user_id,
                         invoice_data=enhanced_data,
-                        approval_status=approval_status.title(),  # Convert to title case
-                        created_by='AI'
+                        approval_status=approval_status.title(),  # Approved, Pending, or Rejected
+                        created_by='AI',
+                        comments=comments  # Pass the approval reasons as comments
                     )
                     
-                    print(f"✓ Request created in database: ID {db_request.ID}")
+                    print(f"✓ Request created in database: ID {db_request.ID} | Status: {approval_status.title()}")
                     
                 except Exception as db_error:
                     print(f"⚠️ Warning: Failed to save request to database: {str(db_error)}")
+                    import traceback as tb
+                    tb.print_exc()
                     # Don't fail the entire process if database insert fails
                 
                 print(f"✓ Successfully processed: {filename}")
@@ -284,9 +320,11 @@ def process_invoice():
     Expected: multipart/form-data with 'file' field
     Returns: JSON with extracted invoice data
     """
+    logger.info("[ENTER] POST /api/process-invoice")
     try:
         # Check if file is present
         if 'file' not in request.files:
+            logger.warning("No file provided in request")
             return jsonify({
                 'status': 'error',
                 'message': 'No file provided. Please send file as multipart/form-data with key "file"'
@@ -296,6 +334,7 @@ def process_invoice():
         
         # Check if file is selected
         if file.filename == '':
+            logger.warning("Empty filename received")
             return jsonify({
                 'status': 'error',
                 'message': 'No file selected'
@@ -303,6 +342,7 @@ def process_invoice():
         
         # Check if file type is allowed
         if not allowed_file(file.filename):
+            logger.warning(f"File type not allowed: {file.filename}")
             return jsonify({
                 'status': 'error',
                 'message': f'File type not allowed. Allowed types: {", ".join(ALLOWED_EXTENSIONS)}'
@@ -312,16 +352,20 @@ def process_invoice():
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
+        logger.info(f"[INFO] File saved: {filepath}")
         
         try:
             # Process the invoice
+            logger.info(f"[INFO] Processing invoice: {filename}")
             proc = get_processor()
             result = proc.process_invoice(filepath)
             
             # Clean up uploaded file
             os.remove(filepath)
+            logger.info(f"[INFO] Processing complete for: {filename}")
             
             if result['status'] == 'success':
+                logger.info(f"[EXIT] Invoice processed successfully: {filename}")
                 return jsonify({
                     'status': 'success',
                     'data': result['data']

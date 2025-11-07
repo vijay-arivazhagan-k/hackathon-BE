@@ -12,6 +12,7 @@ from typing import Dict, List, Optional
 from transformers import DonutProcessor, VisionEncoderDecoderModel
 import pandas as pd
 from datetime import datetime
+import getpass
 
 
 class InvoiceProcessor:
@@ -268,6 +269,13 @@ class InvoiceProcessor:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
         with open(output_file, 'w', encoding='utf-8') as f:
+            # Ensure each result includes processed_by if not present
+            username = getpass.getuser()
+            for r in results:
+                if 'processed_by' not in r:
+                    r['processed_by'] = username
+                if 'user_id' not in r:
+                    r['user_id'] = username
             json.dump(results, f, indent=2, ensure_ascii=False)
         
         print(f"\nAll results saved to: {output_file}")
@@ -332,12 +340,16 @@ class InvoiceProcessor:
         # Create Excel writer
         with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
             # Sheet 1: Invoice Summary
-            summary_fields = ['Invoice Number', 'Invoice Date', 'Total Price', 'Processing Date']
+            # Include processed_by / user info if present, otherwise use local username
+            username = invoice_data.get('user_id') or getpass.getuser()
+
+            summary_fields = ['Invoice Number', 'Invoice Date', 'Total Price', 'Processing Date', 'Processed By']
             summary_values = [
                 invoice_data.get('invoice_number', ''),
                 invoice_data.get('invoice_date', ''),
                 invoice_data.get('total_price', ''),
-                datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                username
             ]
             
             # Add approval information if provided

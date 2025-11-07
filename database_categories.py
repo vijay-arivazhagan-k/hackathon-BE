@@ -6,22 +6,34 @@ from datetime import datetime
 from typing import Optional, List, Tuple
 from contextlib import contextmanager
 
+# Configure logging
+from utils.logger_config import get_logger
+logger = get_logger(__name__)
+
 
 class CategoryDatabaseManager:
     """Database manager for categories"""
     
     def __init__(self):
+        logger.info("[ENTER] CategoryDatabaseManager.__init__")
         self._connection = None
         self._initialize_database()
+        logger.info("[EXIT] CategoryDatabaseManager.__init__")
     
     def _initialize_database(self):
         """Initialize the database with required tables"""
-        self._connection = sqlite3.connect(':memory:', check_same_thread=False)
-        self._connection.row_factory = sqlite3.Row  # Enable column access by name
-        
-        # Create tables
-        self._create_tables()
-        print("✓ Database initialized with IV_MA_CATEGORY and IV_MA_CATEGORY_HISTORY tables")
+        logger.info("[ENTER] _initialize_database")
+        try:
+            self._connection = sqlite3.connect(':memory:', check_same_thread=False)
+            self._connection.row_factory = sqlite3.Row  # Enable column access by name
+            
+            # Create tables
+            self._create_tables()
+            logger.info("✓ Database initialized with IV_MA_CATEGORY and IV_MA_CATEGORY_HISTORY tables")
+            logger.info("[EXIT] _initialize_database")
+        except Exception as e:
+            logger.error(f"[ERROR] _initialize_database: {type(e).__name__}: {str(e)}", exc_info=True)
+            raise
     
     def _create_tables(self):
         """Create the required tables"""

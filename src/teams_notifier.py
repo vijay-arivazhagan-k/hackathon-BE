@@ -8,6 +8,7 @@ import json
 import os
 from typing import Dict
 from urllib.parse import quote
+import getpass
 
 
 class TeamsNotifier:
@@ -116,6 +117,11 @@ class TeamsNotifier:
                                             {
                                                 "title": "Item Count:",
                                                 "value": str(item_count)
+                                            }
+                                            ,
+                                            {
+                                                "title": "Requested By:",
+                                                "value": getpass.getuser()
                                             }
                                         ]
                                     }
@@ -287,6 +293,10 @@ class TeamsNotifier:
                                         {
                                             "title": "Status:",
                                             "value": "Approved" if approved else "Rejected"
+                                        },
+                                        {
+                                            "title": "Requested By:",
+                                            "value": getpass.getuser()
                                         }
                                     ]
                                 }
