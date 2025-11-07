@@ -186,7 +186,9 @@ class InvoiceFileHandler(FileSystemEventHandler):
                     **invoice_data,
                     'approval_status': approval_status,
                     'approval_info': approval_info,
-                    'user_id': username
+                    'user_id': username,
+                    # Provide numeric total_amount explicitly for downstream DB logic
+                    'total_amount': approval_info.get('total_amount', 0)
                 }
                 
                 # Save JSON output

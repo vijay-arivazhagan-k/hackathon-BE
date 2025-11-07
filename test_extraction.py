@@ -18,60 +18,65 @@ raw_output = {
 }
 
 def extract_invoice_fields(raw_data):
-    """Extract only the required fields from raw invoice data."""
+    """Extract only required fields and sanitize amounts (remove currency symbols)."""
     simplified = {
         "invoice_number": "",
         "invoice_date": "",
         "items": [],
         "total_price": ""
     }
-    
-    # Extract invoice date and number from menu items
+
+    def _sanitize_amount(val: str) -> str:
+        if not isinstance(val, str):
+            return ""
+        cleaned = val.replace('₹', '').replace('$', '').replace('€', '').replace('£', '').strip()
+        if ',' in cleaned and '.' in cleaned:
+            cleaned = cleaned.replace(',', '')
+        if ',' in cleaned and '.' not in cleaned:
+            parts = cleaned.split(',')
+            if len(parts) > 1:
+                cleaned = parts[0] + '.' + ''.join(parts[1:])
+        import re
+        match = re.findall(r'\d+(?:\.\d+)?', cleaned)
+        return match[0] if match else ''
+
+    # Extract invoice date and number
     menu_items = raw_data.get("menu", [])
-    
     for item in menu_items:
         if isinstance(item, dict):
             item_name = item.get("nm", "")
-            
-            # Check for invoice number
             if isinstance(item_name, str):
                 if "invoice" in item_name.lower() or "inv" in item_name.lower():
-                    if "price" in item and isinstance(item.get("price"), str):
-                        price_val = item.get("price", "")
-                        if any(c.isdigit() for c in price_val) and "invoice" not in price_val.lower():
-                            simplified["invoice_number"] = price_val
+                    price_val = item.get("price", "")
+                    if isinstance(price_val, str) and any(c.isdigit() for c in price_val):
+                        simplified["invoice_number"] = _sanitize_amount(price_val)
                     if "discountprice" in item:
-                        simplified["invoice_number"] = str(item.get("discountprice", ""))
-                
-                # Check for date
+                        simplified["invoice_number"] = _sanitize_amount(str(item.get("discountprice", "")))
                 if "date" in item_name.lower() or "/" in item_name:
                     simplified["invoice_date"] = item_name.replace("Invoice date:", "").replace("invoice date:", "").strip()
-    
-    # Extract items with names and prices
+
+    # Extract items
     for item in menu_items:
         if isinstance(item, dict):
             item_name = item.get("nm", "")
             item_price = item.get("price", "")
-            
-            # Skip items that are likely metadata
             if isinstance(item_name, str) and item_name and \
                "invoice" not in item_name.lower() and \
                "date:" not in item_name.lower() and \
                "street" not in item_name.lower() and \
                "phone:" not in item_name.lower():
-                
-                # Only add if we have a valid price
-                if item_price and isinstance(item_price, str) and "$" in item_price:
-                    simplified["items"].append({
-                        "item_name": item_name,
-                        "item_price": item_price
-                    })
-    
-    # Extract total price
+                if isinstance(item_price, str):
+                    sanitized = _sanitize_amount(item_price)
+                    if sanitized:
+                        simplified["items"].append({
+                            "item_name": item_name,
+                            "item_price": sanitized
+                        })
+
+    # Total price
     total_data = raw_data.get("total", {})
     if isinstance(total_data, dict):
-        simplified["total_price"] = total_data.get("total_price", "")
-    
+        simplified["total_price"] = _sanitize_amount(total_data.get("total_price", ""))
     return simplified
 
 # Test the extraction

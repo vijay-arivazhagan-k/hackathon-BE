@@ -3,6 +3,7 @@ Request service for business logic
 """
 from typing import List, Optional, Tuple
 from database import RequestRepository, Request
+import re
 
 # Configure logging
 from utils.logger_config import get_logger
@@ -37,7 +38,45 @@ class RequestService:
         logger.info(f"[ENTER] create_request_from_invoice: user_id={user_id}, approval_status={approval_status}")
         try:
             # Extract relevant fields from invoice data
-            total_amount = invoice_data.get('total_amount')
+            # Ensure total_amount is a clean numeric value (no currency conversion, just strip symbols)
+            raw_total = invoice_data.get('total_amount')
+            # Fallback to total_price if total_amount missing or zero-like
+            if (raw_total in (None, '', 0, 0.0)):
+                price_candidate = invoice_data.get('total_price')
+                if isinstance(price_candidate, str) and price_candidate.strip():
+                    tmp = price_candidate.strip().replace('₹', '').replace('$', '').replace(',', '')
+                    match = re.search(r"\d+(?:\.\d+)?", tmp)
+                    if match:
+                        try:
+                            raw_total = float(match.group(0))
+                        except ValueError:
+                            raw_total = 0.0
+                # Fallback to approval_info.total_amount if still empty
+                if (raw_total in (None, '', 0, 0.0)) and isinstance(invoice_data.get('approval_info'), dict):
+                    ai_amount = invoice_data['approval_info'].get('total_amount')
+                    if isinstance(ai_amount, (int, float)):
+                        raw_total = float(ai_amount)
+                    elif isinstance(ai_amount, str) and ai_amount.strip():
+                        tmp2 = ai_amount.strip().replace('₹', '').replace('$', '').replace(',', '')
+                        match2 = re.search(r"\d+(?:\.\d+)?", tmp2)
+                        if match2:
+                            try:
+                                raw_total = float(match2.group(0))
+                            except ValueError:
+                                raw_total = 0.0
+            if isinstance(raw_total, str):
+                cleaned = raw_total.strip().replace('₹', '').replace('$', '').replace(',', '')
+                match = re.search(r"\d+(?:\.\d+)?", cleaned)
+                if match:
+                    try:
+                        raw_total = float(match.group(0))
+                    except ValueError:
+                        raw_total = 0.0
+                else:
+                    raw_total = 0.0
+            elif raw_total is None:
+                raw_total = 0.0
+            total_amount = raw_total
             invoice_date = invoice_data.get('invoice_date')
             invoice_number = invoice_data.get('invoice_number')
             

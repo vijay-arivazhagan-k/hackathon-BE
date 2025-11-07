@@ -126,8 +126,10 @@ async def export_requests(
         ws.title = "Requests"
         
         # Define headers
-        headers = ["ID", "User ID", "Total Amount", "Invoice Date", "Invoice Number", 
-                   "Category", "Status", "Comments", "Approval Type", "Created On", "Created By"]
+        headers = [
+            "ID", "User ID", "Total Amount (₹)", "Invoice Date", "Invoice Number",
+            "Category", "Status", "Comments", "Approval Type", "Created On", "Created By"
+        ]
         
         # Style header row
         header_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
@@ -155,7 +157,7 @@ async def export_requests(
             ws.cell(row=row_num, column=11).value = req.CREATED_BY
             
             # Format currency column
-            ws.cell(row=row_num, column=3).number_format = '$#,##0.00'
+            ws.cell(row=row_num, column=3).number_format = '"₹"#,##0.00'
         
         # Adjust column widths
         ws.column_dimensions['A'].width = 8

@@ -359,9 +359,30 @@ class RequestRepository:
                 where_parts.append("DATE(CREATED_ON) <= DATE(?)")
                 params.append(end_date)
             
-            if category and category.lower() != 'all':
-                where_parts.append("CATEGORY_NAME = ?")
-                params.append(category)
+            if category and str(category).lower() != 'all':
+                # Accept numeric category id (as string) by resolving name if digits-only
+                if str(category).isdigit():
+                    # attempt to resolve category name from category repo if available
+                    try:
+                        from database_categories import CategoryRepository
+                        cat_repo = CategoryRepository()
+                        cat_obj = cat_repo.get_category(int(category))
+                        if cat_obj:
+                            resolved_name = cat_obj.CATEGORYNAME
+                        else:
+                            # No matching id; force empty result by adding impossible condition
+                            where_parts.append("1=0")
+                            resolved_name = None
+                    except Exception:
+                        # Fallback: treat as no match
+                        where_parts.append("1=0")
+                        resolved_name = None
+                    if resolved_name:
+                        where_parts.append("CATEGORY_NAME = ?")
+                        params.append(resolved_name)
+                else:
+                    where_parts.append("CATEGORY_NAME = ?")
+                    params.append(category)
             
             if status and status.lower() != 'all':
                 where_parts.append("CURRENT_STATUS = ?")

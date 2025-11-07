@@ -1,3 +1,27 @@
+def test_export_with_numeric_category_id(tmp_path):
+    service = RequestService()
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    # Create a category via repository to get numeric ID
+    from database_categories import CategoryRepository
+    cat_repo = CategoryRepository()
+    cat = cat_repo.create_category('Travel', 'Travel related', 5000)
+
+    # Create requests using the category NAME (how data is stored)
+    for i in range(2):
+        invoice_data = {
+            'total_amount': 250 + i,
+            'invoice_number': f'TRV-{i}',
+            'category_name': cat.CATEGORYNAME,  # Stored as name
+            'invoice_date': today
+        }
+        service.create_request_from_invoice(user_id='user2', invoice_data=invoice_data)
+
+    # Call repository export using numeric ID passed as string (simulating frontend)
+    from database import RequestRepository
+    repo = RequestRepository()
+    rows = repo.get_filtered_requests_for_export(start_date=today, end_date=today, category=str(cat.ID))
+    assert len(rows) >= 2, f"Expected >=2 rows for numeric category id export, got {len(rows)}"
 import datetime
 from services.request_service import RequestService
 

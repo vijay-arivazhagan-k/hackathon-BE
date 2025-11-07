@@ -115,6 +115,27 @@ class InvoiceProcessor:
                                     simplified["invoice_date"] = part.strip()
                                     break
         
+        # Helper to sanitize currency strings (remove symbols, keep digits & dot/comma)
+        def _sanitize_amount(val: str) -> str:
+            if not isinstance(val, str):
+                return ""
+            # Replace common currency symbols and spaces
+            cleaned = val.replace('₹', '').replace('$', '').replace('€', '').replace('£', '')
+            cleaned = cleaned.strip()
+            # Normalize comma usage: if both comma and dot exist and comma comes before dot (e.g. 1,234.56) remove commas
+            if ',' in cleaned and '.' in cleaned:
+                # Likely thousand separators
+                cleaned = cleaned.replace(',', '')
+            # If only commas and no dots, convert first comma to dot and others remove (e.g. 500,00 -> 500.00)
+            if ',' in cleaned and '.' not in cleaned:
+                parts = cleaned.split(',')
+                if len(parts) > 1:
+                    cleaned = parts[0] + '.' + ''.join(parts[1:])
+            # Allow only digits and one dot
+            import re as _re
+            match = _re.findall(r'\d+(?:\.\d+)?', cleaned)
+            return match[0] if match else ''
+
         # Extract items with names and prices
         for item in menu_items:
             if isinstance(item, dict):
@@ -127,18 +148,19 @@ class InvoiceProcessor:
                    "date:" not in item_name.lower() and \
                    "street" not in item_name.lower() and \
                    "phone:" not in item_name.lower():
-                    
-                    # Only add if we have a valid price
-                    if item_price and isinstance(item_price, str) and "$" in item_price:
-                        simplified["items"].append({
-                            "item_name": item_name,
-                            "item_price": item_price
-                        })
+                    if item_price and isinstance(item_price, str):
+                        sanitized = _sanitize_amount(item_price)
+                        if sanitized:
+                            simplified["items"].append({
+                                "item_name": item_name,
+                                "item_price": sanitized
+                            })
         
         # Extract total price
         total_data = raw_data.get("total", {})
         if isinstance(total_data, dict):
-            simplified["total_price"] = total_data.get("total_price", "")
+            raw_total = total_data.get("total_price", "")
+            simplified["total_price"] = _sanitize_amount(raw_total) if isinstance(raw_total, str) else raw_total
         
         return simplified
     

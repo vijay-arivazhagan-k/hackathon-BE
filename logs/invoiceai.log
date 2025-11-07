@@ -1841,3 +1841,425 @@ TypeError: RequestRepository.get_insights() got an unexpected keyword argument '
 2025-11-07 13:57:54 - services.request_service - INFO - [request_service.py:37] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Rejected
 2025-11-07 13:57:54 - services.request_service - INFO - [request_service.py:54] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=None
 2025-11-07 13:57:54 - services.request_service - INFO - [request_service.py:67] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:49 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:53 - services.request_service - INFO - [request_service.py:83] - [ENTER] get_request: request_id=1
+2025-11-07 13:59:53 - services.request_service - INFO - [request_service.py:86] - [EXIT] get_request: found=True
+2025-11-07 13:59:53 - services.request_service - INFO - [request_service.py:83] - [ENTER] get_request: request_id=1
+2025-11-07 13:59:53 - services.request_service - INFO - [request_service.py:86] - [EXIT] get_request: found=True
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 13:59:56 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:59 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-10-26, end=2025-11-01, duration=None
+2025-11-07 13:59:59 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 13:59:59 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-10-26, end=2025-11-01, category=None
+2025-11-07 13:59:59 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:05 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-11-01, end=2025-11-07, duration=None
+2025-11-07 14:01:05 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 14:01:05 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-01, end=2025-11-07, category=None
+2025-11-07 14:01:05 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:13 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-10-01, end=2025-10-31, category=None
+2025-11-07 14:01:13 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:13 - services.request_service - INFO - [request_service.py:162] - [ENTER] get_insights: start=2025-10-01, end=2025-10-31, duration=None
+2025-11-07 14:01:13 - services.request_service - INFO - [request_service.py:165] - [EXIT] get_insights: insights_retrieved
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:14 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:19 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=approved, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:19 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:22 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:22 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:23 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=rejected, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:23 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:26 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=pending, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:26 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:28 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=rejected, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 14:01:28 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:01:33 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=rejected, start=2025-11-02, end=2025-11-04, category=None
+2025-11-07 14:01:33 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:35 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-04, category=None
+2025-11-07 14:01:35 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:37 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-06, category=None
+2025-11-07 14:01:37 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=0, total=0
+2025-11-07 14:01:39 - services.request_service - INFO - [request_service.py:113] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-07 14:01:39 - services.request_service - INFO - [request_service.py:116] - [EXIT] list_requests: count=1, total=1
+2025-11-07 14:08:52 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 14:08:52 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 14:08:52 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 14:08:52 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:16] - [ENTER] RequestService.__init__
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:18] - [EXIT] RequestService.__init__
+2025-11-07 14:08:52 - database_categories - INFO - [database_categories.py:18] - [ENTER] CategoryDatabaseManager.__init__
+2025-11-07 14:08:52 - database_categories - INFO - [database_categories.py:25] - [ENTER] _initialize_database
+2025-11-07 14:08:52 - database_categories - INFO - [database_categories.py:33] - [EXIT] _initialize_database
+2025-11-07 14:08:52 - database_categories - INFO - [database_categories.py:21] - [EXIT] CategoryDatabaseManager.__init__
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:37] - [ENTER] create_request_from_invoice: user_id=user2, approval_status=Pending
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:54] - [INFO] create_request_from_invoice: invoice_number=TRV-0, category=TRAVEL, amount=250
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:67] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:37] - [ENTER] create_request_from_invoice: user_id=user2, approval_status=Pending
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:54] - [INFO] create_request_from_invoice: invoice_number=TRV-1, category=TRAVEL, amount=251
+2025-11-07 14:08:52 - services.request_service - INFO - [request_service.py:67] - [EXIT] create_request_from_invoice: request_id=2
+2025-11-07 15:17:31 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 15:17:31 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 15:17:31 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 15:17:31 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 15:17:31 - services.request_service - INFO - [request_service.py:16] - [ENTER] RequestService.__init__
+2025-11-07 15:17:31 - services.request_service - INFO - [request_service.py:18] - [EXIT] RequestService.__init__
+2025-11-07 15:17:31 - services.request_service - INFO - [request_service.py:37] - [ENTER] create_request_from_invoice: user_id=tester, approval_status=Approved
+2025-11-07 15:17:31 - services.request_service - INFO - [request_service.py:74] - [INFO] create_request_from_invoice: invoice_number=INV-555, category=General, amount=1234.5
+2025-11-07 15:17:31 - services.request_service - INFO - [request_service.py:87] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 16:03:21 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 16:03:21 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 16:03:21 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 16:03:21 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 16:03:40 - database_categories - INFO - [database_categories.py:18] - [ENTER] CategoryDatabaseManager.__init__
+2025-11-07 16:03:40 - database_categories - INFO - [database_categories.py:25] - [ENTER] _initialize_database
+2025-11-07 16:03:40 - database_categories - INFO - [database_categories.py:33] - [EXIT] _initialize_database
+2025-11-07 16:03:40 - database_categories - INFO - [database_categories.py:21] - [EXIT] CategoryDatabaseManager.__init__
+2025-11-07 16:04:07 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 16:04:07 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 16:04:08 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 16:04:08 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=tester, approval_status=Approved
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:70] - [INFO] create_request_from_invoice: invoice_number=CUR-USD, category=General, amount=8300.0
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:83] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=tester, approval_status=Approved
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:70] - [INFO] create_request_from_invoice: invoice_number=CUR-EUR, category=General, amount=4450.0
+2025-11-07 16:04:08 - services.request_service - INFO - [request_service.py:83] - [EXIT] create_request_from_invoice: request_id=2
+2025-11-07 16:09:08 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 16:09:08 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 16:09:08 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 16:09:08 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 16:09:15 - database_categories - INFO - [database_categories.py:18] - [ENTER] CategoryDatabaseManager.__init__
+2025-11-07 16:09:15 - database_categories - INFO - [database_categories.py:25] - [ENTER] _initialize_database
+2025-11-07 16:09:15 - database_categories - INFO - [database_categories.py:33] - [EXIT] _initialize_database
+2025-11-07 16:09:15 - database_categories - INFO - [database_categories.py:21] - [EXIT] CategoryDatabaseManager.__init__
+2025-11-07 16:11:29 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 16:11:29 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 16:11:29 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 16:11:29 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 16:11:29 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:11:29 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:11:29 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:11:29 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:24:16 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 16:24:16 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 16:24:16 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 16:24:16 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=tester@example.com, approval_status=Approved
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:93] - [INFO] create_request_from_invoice: invoice_number=INV-TEST-001, category=General, amount=1234.5
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:106] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=tester@example.com, approval_status=Pending
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:93] - [INFO] create_request_from_invoice: invoice_number=INV-TEST-002, category=General, amount=2001.75
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:106] - [EXIT] create_request_from_invoice: request_id=2
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=tester@example.com, approval_status=Pending
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:93] - [INFO] create_request_from_invoice: invoice_number=INV-TEST-003, category=General, amount=0.0
+2025-11-07 16:24:16 - services.request_service - INFO - [request_service.py:106] - [EXIT] create_request_from_invoice: request_id=3
+2025-11-07 17:47:56 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 17:47:56 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 17:47:56 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 17:47:56 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 17:47:56 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 17:47:56 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 17:47:56 - database_categories - INFO - [database_categories.py:18] - [ENTER] CategoryDatabaseManager.__init__
+2025-11-07 17:47:56 - database_categories - INFO - [database_categories.py:25] - [ENTER] _initialize_database
+2025-11-07 17:47:56 - database_categories - INFO - [database_categories.py:33] - [EXIT] _initialize_database
+2025-11-07 17:47:56 - database_categories - INFO - [database_categories.py:21] - [EXIT] CategoryDatabaseManager.__init__
+2025-11-07 17:47:56 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-07 17:47:56 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:49:55 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:50:32 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-07 17:50:32 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-07 17:50:36 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-07 17:50:36 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=False
+2025-11-07 17:50:36 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 17:50:36 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 17:50:36 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Rejected
+2025-11-07 17:50:36 - services.request_service - INFO - [request_service.py:93] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0
+2025-11-07 17:50:36 - services.request_service - INFO - [request_service.py:106] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:52:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:15 - services.category_service - INFO - [category_service.py:25] - [ENTER] create_category: categoryname='CENTRICOCARES'
+2025-11-07 17:53:15 - services.category_service - INFO - [category_service.py:31] - [EXIT] create_category: created category_id=1
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:26 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:28 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-10-26, end=2025-11-01, category=None
+2025-11-07 17:53:28 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:53:28 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-10-26, end=2025-11-01, duration=None
+2025-11-07 17:53:28 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:32 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-01, end=2025-11-07, category=None
+2025-11-07 17:53:32 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:32 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-01, end=2025-11-07, duration=None
+2025-11-07 17:53:32 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:35 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-10-01, end=2025-10-31, category=None
+2025-11-07 17:53:35 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 17:53:35 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-10-01, end=2025-10-31, duration=None
+2025-11-07 17:53:35 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:38 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-01, end=2025-11-07, category=None
+2025-11-07 17:53:38 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:38 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-01, end=2025-11-07, duration=None
+2025-11-07 17:53:38 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:40 - services.request_service - INFO - [request_service.py:122] - [ENTER] get_request: request_id=1
+2025-11-07 17:53:40 - services.request_service - INFO - [request_service.py:125] - [EXIT] get_request: found=True
+2025-11-07 17:53:40 - services.request_service - INFO - [request_service.py:122] - [ENTER] get_request: request_id=1
+2025-11-07 17:53:40 - services.request_service - INFO - [request_service.py:125] - [EXIT] get_request: found=True
+2025-11-07 17:53:46 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-07 17:53:46 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-07 17:53:46 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-07 17:53:46 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-07 17:53:48 - services.request_service - INFO - [request_service.py:177] - [ENTER] update_request_status: request_id=1, new_status=Approved
+2025-11-07 17:53:48 - services.request_service - INFO - [request_service.py:182] - [EXIT] update_request_status: updated=True
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:49 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:52 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:53:58 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:53:59 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=1, total=1
+2025-11-07 17:54:18 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-07 17:54:18 - services.request_service - INFO - [request_service.py:93] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0
+2025-11-07 17:54:18 - services.request_service - INFO - [request_service.py:106] - [EXIT] create_request_from_invoice: request_id=2
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 17:57:02 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 17:57:04 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:02:12 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:08:27 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=2, total=2
+2025-11-07 18:09:02 - database - INFO - [database.py:18] - [ENTER] DatabaseManager.__init__
+2025-11-07 18:09:02 - database - INFO - [database.py:25] - [ENTER] _initialize_database
+2025-11-07 18:09:02 - database - INFO - [database.py:33] - [EXIT] _initialize_database
+2025-11-07 18:09:02 - database - INFO - [database.py:21] - [EXIT] DatabaseManager.__init__
+2025-11-07 18:09:02 - services.request_service - INFO - [request_service.py:17] - [ENTER] RequestService.__init__
+2025-11-07 18:09:02 - services.request_service - INFO - [request_service.py:19] - [EXIT] RequestService.__init__
+2025-11-07 18:09:02 - database_categories - INFO - [database_categories.py:18] - [ENTER] CategoryDatabaseManager.__init__
+2025-11-07 18:09:02 - database_categories - INFO - [database_categories.py:25] - [ENTER] _initialize_database
+2025-11-07 18:09:02 - database_categories - INFO - [database_categories.py:33] - [EXIT] _initialize_database
+2025-11-07 18:09:02 - database_categories - INFO - [database_categories.py:21] - [EXIT] CategoryDatabaseManager.__init__
+2025-11-07 18:09:02 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-07 18:09:02 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:09:25 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:12:41 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:13:01 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:08 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:19 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:152] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-07, category=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:155] - [EXIT] list_requests: count=0, total=0
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:201] - [ENTER] get_insights: start=2025-11-02, end=2025-11-07, duration=None
+2025-11-07 18:14:23 - services.request_service - INFO - [request_service.py:204] - [EXIT] get_insights: insights_retrieved
+2025-11-07 18:14:46 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-07 18:14:46 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
