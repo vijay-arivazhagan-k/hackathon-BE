@@ -4070,3 +4070,403 @@ AttributeError: 'sqlite3.Row' object has no attribute 'get'
 2025-11-08 15:50:35 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=False
 2025-11-08 15:50:35 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0, approved_amount=2388.0
 2025-11-08 15:50:35 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=1
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:26 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:51:28 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:52:39 - services.category_service - INFO - [category_service.py:25] - [ENTER] create_category: categoryname='CENTRICOCARES'
+2025-11-08 15:52:39 - services.category_service - INFO - [category_service.py:31] - [EXIT] create_category: created category_id=1
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=1, total=1
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:52:40 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:53:03 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:53:03 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:53:03 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:53:03 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:53:12 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:53:12 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:53:12 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=3000.0, approved=2388.0
+2025-11-08 15:53:12 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0, approved_amount=2388.0
+2025-11-08 15:53:12 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=50, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:18 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:24 - services.request_service - INFO - [request_service.py:135] - [ENTER] get_request: request_id=1
+2025-11-08 15:54:24 - services.request_service - INFO - [request_service.py:138] - [EXIT] get_request: found=True
+2025-11-08 15:54:24 - services.request_service - INFO - [request_service.py:135] - [ENTER] get_request: request_id=1
+2025-11-08 15:54:24 - services.request_service - INFO - [request_service.py:138] - [EXIT] get_request: found=True
+2025-11-08 15:54:35 - services.request_service - INFO - [request_service.py:192] - [ENTER] update_request_status: request_id=1, new_status=Approved, approved_amount=3000.0
+2025-11-08 15:54:35 - services.request_service - INFO - [request_service.py:197] - [EXIT] update_request_status: updated=True
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=2, total=2
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 15:54:36 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:41 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:42 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:42 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:42 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:42 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 15:54:52 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 15:55:19 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:55:19 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:55:19 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:55:19 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:55:55 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 15:55:55 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 15:55:55 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 15:55:55 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 15:55:55 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=3
+2025-11-08 16:01:43 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:01:43 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:01:43 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:01:43 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:02:00 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:02:00 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:02:00 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:02:00 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:02:00 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=4
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:02:10 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:02:13 - services.request_service - INFO - [request_service.py:135] - [ENTER] get_request: request_id=4
+2025-11-08 16:02:13 - services.request_service - INFO - [request_service.py:138] - [EXIT] get_request: found=True
+2025-11-08 16:02:13 - services.request_service - INFO - [request_service.py:135] - [ENTER] get_request: request_id=4
+2025-11-08 16:02:13 - services.request_service - INFO - [request_service.py:138] - [EXIT] get_request: found=True
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:43 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:04:50 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:04:51 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=4, total=4
+2025-11-08 16:05:19 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:05:19 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:05:19 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:05:19 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:05:48 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICOCARES'
+2025-11-08 16:05:48 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:05:48 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:05:48 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICOCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:05:48 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=5
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:07:57 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:07:58 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=1
+2025-11-08 16:07:58 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:09:01 - services.category_service - INFO - [category_service.py:25] - [ENTER] create_category: categoryname='CENTRICONOTCARES'
+2025-11-08 16:09:01 - services.category_service - INFO - [category_service.py:31] - [EXIT] create_category: created category_id=2
+2025-11-08 16:09:13 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:09:13 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:09:13 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:09:13 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:09:14 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:09:14 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:09:14 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:09:14 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:09:47 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:09:47 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:09:47 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:09:47 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:10:14 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:10:14 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:10:14 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:10:14 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICONOTCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:10:14 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=6
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:15 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:16 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:16 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:16 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:16 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:11:21 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=6, total=6
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=6, total=6
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=6, total=6
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:11:22 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=6, total=6
+2025-11-08 16:11:53 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:11:53 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:11:53 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:11:53 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:12:25 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:12:25 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:12:25 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:12:25 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICONOTCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:12:25 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=7
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:39 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:40 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:40 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:40 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:40 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:39] - [ENTER] get_category: category_id=2
+2025-11-08 16:13:49 - services.category_service - INFO - [category_service.py:42] - [EXIT] get_category: found=True
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=7, total=7
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=7, total=7
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=7, total=7
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:165] - [ENTER] list_requests: page=1, page_size=20, status=None, start=2025-11-02, end=2025-11-08, category=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:168] - [EXIT] list_requests: count=7, total=7
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:216] - [ENTER] get_insights: start=2025-11-02, end=2025-11-08, duration=None
+2025-11-08 16:13:52 - services.request_service - INFO - [request_service.py:219] - [EXIT] get_insights: insights_retrieved
+2025-11-08 16:14:25 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:14:25 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:14:25 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:14:25 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:14:49 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:14:49 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:14:49 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:14:49 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICONOTCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:14:49 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=8
+2025-11-08 16:15:22 - category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:15:22 - category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:15:22 - category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:15:22 - category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:15:40 - services.request_service - INFO - [request_service.py:38] - [ENTER] create_request_from_invoice: user_id=GBS09515, approval_status=Approved
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:16] - [ENTER] CategoryService.__init__
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:18] - [EXIT] CategoryService.__init__
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:50] - [ENTER] get_category_by_name: categoryname='CENTRICONOTCARES'
+2025-11-08 16:15:40 - services.category_service - INFO - [category_service.py:56] - [EXIT] get_category_by_name: found=True
+2025-11-08 16:15:40 - services.request_service - INFO - [request_service.py:96] - [INFO] Approved amount calculated: total=2388.0, category_max=1000.0, approved=1000.0
+2025-11-08 16:15:40 - services.request_service - INFO - [request_service.py:105] - [INFO] create_request_from_invoice: invoice_number=12074, category=CENTRICONOTCARES, amount=2388.0, approved_amount=1000.0
+2025-11-08 16:15:40 - services.request_service - INFO - [request_service.py:119] - [EXIT] create_request_from_invoice: request_id=9
