@@ -42,8 +42,8 @@ class TeamsNotifier:
         invoice_number = invoice_data.get('invoice_number', 'N/A')
         invoice_date = invoice_data.get('invoice_date', 'N/A')
         total_price = invoice_data.get('total_price', 'N/A')
+        approved_amount = invoice_data.get('approved_amount', 0)
         item_count = approval_info.get('item_count', 0)
-        total_amount = approval_info.get('total_amount', 0)
         reasons = approval_info.get('reasons', [])
         
         # Build items list for display
@@ -113,6 +113,10 @@ class TeamsNotifier:
                                             {
                                                 "title": "Total Amount:",
                                                 "value": total_price
+                                            },
+                                            {
+                                                "title": "Approved Amount:",
+                                                "value": f"₹{approved_amount:.2f}"
                                             },
                                             {
                                                 "title": "Item Count:",

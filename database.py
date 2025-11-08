@@ -45,6 +45,7 @@ class DatabaseManager:
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 USER_ID VARCHAR(25) NOT NULL,
                 TOTAL_AMOUNT DECIMAL(10,2),
+                APPROVED_AMOUNT DECIMAL(10,2),
                 INVOICE_DATE DATE,
                 INVOICE_NUMBER VARCHAR(50),
                 CATEGORY_NAME VARCHAR(100),
@@ -65,6 +66,7 @@ class DatabaseManager:
                 REQUEST_ID INTEGER NOT NULL,
                 USER_ID VARCHAR(25) NOT NULL,
                 TOTAL_AMOUNT DECIMAL(10,2),
+                APPROVED_AMOUNT DECIMAL(10,2),
                 INVOICE_DATE DATE,
                 INVOICE_NUMBER VARCHAR(50),
                 CATEGORY_NAME VARCHAR(100),
@@ -113,6 +115,7 @@ class Request:
             self.ID = row_data['ID']
             self.USER_ID = row_data['USER_ID']
             self.TOTAL_AMOUNT = row_data['TOTAL_AMOUNT']
+            self.APPROVED_AMOUNT = row_data['APPROVED_AMOUNT'] if 'APPROVED_AMOUNT' in row_data.keys() else None
             self.INVOICE_DATE = row_data['INVOICE_DATE']
             self.INVOICE_NUMBER = row_data['INVOICE_NUMBER']
             self.CATEGORY_NAME = row_data['CATEGORY_NAME']
@@ -128,6 +131,7 @@ class Request:
             self.ID = kwargs.get('ID')
             self.USER_ID = kwargs.get('USER_ID')
             self.TOTAL_AMOUNT = kwargs.get('TOTAL_AMOUNT')
+            self.APPROVED_AMOUNT = kwargs.get('APPROVED_AMOUNT')
             self.INVOICE_DATE = kwargs.get('INVOICE_DATE')
             self.INVOICE_NUMBER = kwargs.get('INVOICE_NUMBER')
             self.CATEGORY_NAME = kwargs.get('CATEGORY_NAME')
@@ -149,6 +153,7 @@ class RequestHistory:
             self.REQUEST_ID = row_data['REQUEST_ID']
             self.USER_ID = row_data['USER_ID']
             self.TOTAL_AMOUNT = row_data['TOTAL_AMOUNT']
+            self.APPROVED_AMOUNT = row_data.get('APPROVED_AMOUNT')
             self.INVOICE_DATE = row_data['INVOICE_DATE']
             self.INVOICE_NUMBER = row_data['INVOICE_NUMBER']
             self.CATEGORY_NAME = row_data['CATEGORY_NAME']
@@ -164,6 +169,7 @@ class RequestHistory:
             self.REQUEST_ID = kwargs.get('REQUEST_ID')
             self.USER_ID = kwargs.get('USER_ID')
             self.TOTAL_AMOUNT = kwargs.get('TOTAL_AMOUNT')
+            self.APPROVED_AMOUNT = kwargs.get('APPROVED_AMOUNT')
             self.INVOICE_DATE = kwargs.get('INVOICE_DATE')
             self.INVOICE_NUMBER = kwargs.get('INVOICE_NUMBER')
             self.CATEGORY_NAME = kwargs.get('CATEGORY_NAME')
@@ -186,18 +192,18 @@ class RequestRepository:
                       invoice_date: Optional[str], invoice_number: Optional[str],
                       category_name: Optional[str], comments: Optional[str] = None,
                       approval_type: str = 'Auto', created_by: str = 'AI',
-                      status: str = 'Pending') -> Request:
+                      status: str = 'Pending', approved_amount: Optional[float] = None) -> Request:
         """Create a new request"""
         with self.db.get_cursor() as cursor:
             current_time = datetime.now().isoformat()
             
             cursor.execute('''
                 INSERT INTO IV_TR_REQUESTS 
-                (USER_ID, TOTAL_AMOUNT, INVOICE_DATE, INVOICE_NUMBER, CATEGORY_NAME, 
+                (USER_ID, TOTAL_AMOUNT, APPROVED_AMOUNT, INVOICE_DATE, INVOICE_NUMBER, CATEGORY_NAME, 
                  CURRENT_STATUS, COMMENTS, APPROVALTYPE, CREATED_ON, UPDATED_ON, 
                  CREATED_BY, UPDATED_BY)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (user_id, total_amount, invoice_date, invoice_number, category_name,
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (user_id, total_amount, approved_amount, invoice_date, invoice_number, category_name,
                   status, comments, approval_type, current_time, current_time,
                   created_by, created_by))
             
@@ -206,7 +212,7 @@ class RequestRepository:
             # Add to history
             self._add_to_history(cursor, request_id, user_id, total_amount, 
                                invoice_date, invoice_number, category_name,
-                               status, comments, approval_type, created_by)
+                               status, comments, approval_type, created_by, approved_amount)
             
             # Fetch and return the created request
             cursor.execute('SELECT * FROM IV_TR_REQUESTS WHERE ID = ?', (request_id,))
@@ -222,7 +228,8 @@ class RequestRepository:
     
     def update_request_status(self, request_id: int, new_status: str, 
                              comments: Optional[str] = None, 
-                             updated_by: str = 'Admin') -> Optional[Request]:
+                             updated_by: str = 'Admin',
+                             approved_amount: Optional[float] = None) -> Optional[Request]:
         """Update request status"""
         with self.db.get_cursor() as cursor:
             current_time = datetime.now().isoformat()
@@ -233,19 +240,22 @@ class RequestRepository:
             if not current_row:
                 return None
             
+            # Determine approved_amount to use
+            final_approved_amount = approved_amount if approved_amount is not None else current_row.get('APPROVED_AMOUNT')
+            
             # Update main request
             cursor.execute('''
                 UPDATE IV_TR_REQUESTS 
-                SET CURRENT_STATUS = ?, COMMENTS = ?, UPDATED_ON = ?, UPDATED_BY = ?
+                SET CURRENT_STATUS = ?, COMMENTS = ?, UPDATED_ON = ?, UPDATED_BY = ?, APPROVED_AMOUNT = ?
                 WHERE ID = ?
-            ''', (new_status, comments or current_row['COMMENTS'], current_time, updated_by, request_id))
+            ''', (new_status, comments or current_row['COMMENTS'], current_time, updated_by, final_approved_amount, request_id))
             
             # Add to history
             self._add_to_history(cursor, request_id, current_row['USER_ID'],
                                current_row['TOTAL_AMOUNT'], current_row['INVOICE_DATE'],
                                current_row['INVOICE_NUMBER'], current_row['CATEGORY_NAME'],
                                new_status, comments or current_row['COMMENTS'],
-                               current_row['APPROVALTYPE'], updated_by)
+                               current_row['APPROVALTYPE'], updated_by, final_approved_amount)
             
             # Return updated request
             cursor.execute('SELECT * FROM IV_TR_REQUESTS WHERE ID = ?', (request_id,))
@@ -450,16 +460,16 @@ class RequestRepository:
                        total_amount: Optional[float], invoice_date: Optional[str],
                        invoice_number: Optional[str], category_name: Optional[str],
                        status: str, comments: Optional[str], approval_type: str,
-                       created_by: str):
+                       created_by: str, approved_amount: Optional[float] = None):
         """Add entry to request history"""
         current_time = datetime.now().isoformat()
         
         cursor.execute('''
             INSERT INTO IV_TR_REQUEST_HISTORY 
-            (REQUEST_ID, USER_ID, TOTAL_AMOUNT, INVOICE_DATE, INVOICE_NUMBER, 
+            (REQUEST_ID, USER_ID, TOTAL_AMOUNT, APPROVED_AMOUNT, INVOICE_DATE, INVOICE_NUMBER, 
              CATEGORY_NAME, CURRENT_STATUS, COMMENTS, APPROVALTYPE, 
              CREATED_ON, UPDATED_ON, CREATED_BY, UPDATED_BY)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (request_id, user_id, total_amount, invoice_date, invoice_number,
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (request_id, user_id, total_amount, approved_amount, invoice_date, invoice_number,
               category_name, status, comments, approval_type, current_time,
               current_time, created_by, created_by))

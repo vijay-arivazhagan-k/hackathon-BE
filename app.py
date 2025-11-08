@@ -158,7 +158,6 @@ class InvoiceFileHandler(FileSystemEventHandler):
                     'status': approval_status,
                     'approved': approval_status == 'approved',
                     'item_count': len(invoice_data.get('items', [])),
-                    'total_amount': invoice_data.get('total_amount', 0),
                     'reasons': eval_result['reasons'],
                     'category': eval_result['category'],
                     'category_found': eval_result.get('category_found', False)
@@ -182,13 +181,31 @@ class InvoiceFileHandler(FileSystemEventHandler):
                 username = getpass.getuser()
                 print("Logged in user:", username)
 
+                # Parse total_amount from total_price for DB storage
+                try:
+                    total_price_str = invoice_data.get('total_price', '0')
+                    total_amount_numeric = float(str(total_price_str).replace('₹', '').replace('$', '').replace(',', '').strip())
+                except (ValueError, AttributeError):
+                    total_amount_numeric = 0.0
+
+                # Calculate approved_amount based on category maximum
+                approved_amount_numeric = total_amount_numeric
+                category_name = eval_result.get('category', 'General')
+                if category_name and category_name != 'General':
+                    from services.category_service import CategoryService
+                    category_service = CategoryService()
+                    category = category_service.get_category_by_name(category_name)
+                    if category and category.MAXIMUMAMOUNT is not None:
+                        approved_amount_numeric = min(total_amount_numeric, float(category.MAXIMUMAMOUNT))
+
                 enhanced_data = {
                     **invoice_data,
                     'approval_status': approval_status,
                     'approval_info': approval_info,
                     'user_id': username,
-                    # Provide numeric total_amount explicitly for downstream DB logic
-                    'total_amount': approval_info.get('total_amount', 0)
+                    # Provide numeric total_amount explicitly for downstream DB logic (parsed from total_price)
+                    'total_amount': total_amount_numeric,
+                    'approved_amount': approved_amount_numeric
                 }
                 
                 # Save JSON output
@@ -208,7 +225,7 @@ class InvoiceFileHandler(FileSystemEventHandler):
                 
                 # Display approval status
                 print(f"\n📋 Approval Status: {approval_status.upper()}")
-                print(f"   Items: {approval_info['item_count']} | Amount: ${approval_info['total_amount']:.2f}")
+                print(f"   Items: {approval_info['item_count']} | Total Amount: ₹{total_amount_numeric:.2f} | Approved Amount: ₹{approved_amount_numeric:.2f}")
                 print(f"   Reason: {'; '.join(approval_info['reasons'])}")
                 print(f"   Category: {eval_result['category']} (Found: {approval_info['category_found']})")
                 

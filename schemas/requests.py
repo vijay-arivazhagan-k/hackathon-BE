@@ -10,6 +10,7 @@ class RequestBase(BaseModel):
     """Base request model"""
     user_id: str = Field(..., max_length=25)
     total_amount: Optional[float] = Field(None)
+    approved_amount: Optional[float] = Field(None)
     invoice_date: Optional[str] = Field(None)
     invoice_number: Optional[str] = Field(None, max_length=50)
     category_name: Optional[str] = Field(None, max_length=100)
@@ -29,6 +30,7 @@ class RequestResponse(BaseModel):
     id: int = Field(..., alias='ID')
     user_id: str = Field(..., alias='USER_ID')
     total_amount: Optional[float] = Field(None, alias='TOTAL_AMOUNT')
+    approved_amount: Optional[float] = Field(None, alias='APPROVED_AMOUNT')
     invoice_date: Optional[str] = Field(None, alias='INVOICE_DATE')
     invoice_number: Optional[str] = Field(None, alias='INVOICE_NUMBER')
     category_name: Optional[str] = Field(None, alias='CATEGORY_NAME')
@@ -51,6 +53,7 @@ class RequestStatusUpdate(BaseModel):
     status: str = Field(..., pattern='^(Pending|Approved|Rejected)$')
     comments: Optional[str] = Field(None, max_length=4000)
     updated_by: Optional[str] = Field(default='Admin', max_length=25)
+    approved_amount: Optional[float] = Field(None, description='Approved amount (optional override)')
 
 
 class RequestHistoryResponse(BaseModel):
@@ -59,6 +62,7 @@ class RequestHistoryResponse(BaseModel):
     request_id: int = Field(..., alias='REQUEST_ID')
     user_id: str = Field(..., alias='USER_ID')
     total_amount: Optional[float] = Field(None, alias='TOTAL_AMOUNT')
+    approved_amount: Optional[float] = Field(None, alias='APPROVED_AMOUNT')
     invoice_date: Optional[str] = Field(None, alias='INVOICE_DATE')
     invoice_number: Optional[str] = Field(None, alias='INVOICE_NUMBER')
     category_name: Optional[str] = Field(None, alias='CATEGORY_NAME')

@@ -127,7 +127,7 @@ async def export_requests(
         
         # Define headers
         headers = [
-            "ID", "User ID", "Total Amount (₹)", "Invoice Date", "Invoice Number",
+            "ID", "User ID", "Total Amount (₹)", "Approved Amount (₹)", "Invoice Date", "Invoice Number",
             "Category", "Status", "Comments", "Approval Type", "Created On", "Created By"
         ]
         
@@ -147,30 +147,33 @@ async def export_requests(
             ws.cell(row=row_num, column=1).value = req.ID
             ws.cell(row=row_num, column=2).value = req.USER_ID
             ws.cell(row=row_num, column=3).value = float(req.TOTAL_AMOUNT) if req.TOTAL_AMOUNT else 0
-            ws.cell(row=row_num, column=4).value = req.INVOICE_DATE
-            ws.cell(row=row_num, column=5).value = req.INVOICE_NUMBER
-            ws.cell(row=row_num, column=6).value = req.CATEGORY_NAME
-            ws.cell(row=row_num, column=7).value = req.CURRENT_STATUS
-            ws.cell(row=row_num, column=8).value = req.COMMENTS
-            ws.cell(row=row_num, column=9).value = req.APPROVALTYPE
-            ws.cell(row=row_num, column=10).value = req.CREATED_ON
-            ws.cell(row=row_num, column=11).value = req.CREATED_BY
+            ws.cell(row=row_num, column=4).value = float(req.APPROVED_AMOUNT) if req.APPROVED_AMOUNT else 0
+            ws.cell(row=row_num, column=5).value = req.INVOICE_DATE
+            ws.cell(row=row_num, column=6).value = req.INVOICE_NUMBER
+            ws.cell(row=row_num, column=7).value = req.CATEGORY_NAME
+            ws.cell(row=row_num, column=8).value = req.CURRENT_STATUS
+            ws.cell(row=row_num, column=9).value = req.COMMENTS
+            ws.cell(row=row_num, column=10).value = req.APPROVALTYPE
+            ws.cell(row=row_num, column=11).value = req.CREATED_ON
+            ws.cell(row=row_num, column=12).value = req.CREATED_BY
             
-            # Format currency column
+            # Format currency columns
             ws.cell(row=row_num, column=3).number_format = '"₹"#,##0.00'
+            ws.cell(row=row_num, column=4).number_format = '"₹"#,##0.00'
         
         # Adjust column widths
         ws.column_dimensions['A'].width = 8
         ws.column_dimensions['B'].width = 15
-        ws.column_dimensions['C'].width = 15
-        ws.column_dimensions['D'].width = 15
-        ws.column_dimensions['E'].width = 18
-        ws.column_dimensions['F'].width = 15
-        ws.column_dimensions['G'].width = 12
-        ws.column_dimensions['H'].width = 25
-        ws.column_dimensions['I'].width = 15
-        ws.column_dimensions['J'].width = 20
-        ws.column_dimensions['K'].width = 15
+        ws.column_dimensions['C'].width = 18
+        ws.column_dimensions['D'].width = 18
+        ws.column_dimensions['E'].width = 15
+        ws.column_dimensions['F'].width = 18
+        ws.column_dimensions['G'].width = 15
+        ws.column_dimensions['H'].width = 12
+        ws.column_dimensions['I'].width = 25
+        ws.column_dimensions['J'].width = 15
+        ws.column_dimensions['K'].width = 20
+        ws.column_dimensions['L'].width = 15
         
         # Save to bytes buffer
         output = io.BytesIO()
@@ -235,7 +238,9 @@ async def update_request_status(request_id: int, update: RequestStatusUpdate):
         HTTPException: 404 if request not found
     """
     req = service.update_request_status(
-        request_id, update.status, update.comments, update.updated_by if update.updated_by else 'Admin'
+        request_id, update.status, update.comments, 
+        update.updated_by if update.updated_by else 'Admin',
+        update.approved_amount
     )
     
     if not req:

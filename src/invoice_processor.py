@@ -343,7 +343,6 @@ class InvoiceProcessor:
             'approved': approved,
             'status': 'approved' if approved else 'pending',
             'item_count': item_count,
-            'total_amount': total_amount,
             'reasons': reasons if not approved else ['All approval criteria met']
         }
     
@@ -376,11 +375,10 @@ class InvoiceProcessor:
             
             # Add approval information if provided
             if approval_info:
-                summary_fields.extend(['Approval Status', 'Item Count', 'Total Amount', 'Approval Notes'])
+                summary_fields.extend(['Approval Status', 'Item Count', 'Approval Notes'])
                 summary_values.extend([
                     approval_info.get('status', '').upper(),
                     str(approval_info.get('item_count', '')),
-                    f"${approval_info.get('total_amount', 0):.2f}",
                     '; '.join(approval_info.get('reasons', []))
                 ])
             

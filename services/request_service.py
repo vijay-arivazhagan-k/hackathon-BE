@@ -83,6 +83,18 @@ class RequestService:
             # Determine category from filename or invoice data
             category_name = invoice_data.get('category_name', 'General')
             
+            # Calculate approved_amount based on category maximum
+            approved_amount = total_amount  # Default to total_amount
+            if category_name and category_name != 'General':
+                # Get category to check maximum amount
+                from services.category_service import CategoryService
+                category_service = CategoryService()
+                category = category_service.get_category_by_name(category_name)
+                if category and category.MAXIMUMAMOUNT is not None:
+                    # Use the minimum of total_amount and category maximum
+                    approved_amount = min(total_amount, float(category.MAXIMUMAMOUNT))
+                    logger.info(f"[INFO] Approved amount calculated: total={total_amount}, category_max={category.MAXIMUMAMOUNT}, approved={approved_amount}")
+            
             # Auto-determine approval type based on existing logic
             approval_type = self._determine_approval_type(invoice_data)
             
@@ -90,11 +102,12 @@ class RequestService:
             if comments is None:
                 comments = f"Auto-created from invoice processing"
             
-            logger.info(f"[INFO] create_request_from_invoice: invoice_number={invoice_number}, category={category_name}, amount={total_amount}")
+            logger.info(f"[INFO] create_request_from_invoice: invoice_number={invoice_number}, category={category_name}, amount={total_amount}, approved_amount={approved_amount}")
             
             result = self.repository.create_request(
                 user_id=user_id,
                 total_amount=total_amount,
+                approved_amount=approved_amount,
                 invoice_date=invoice_date,
                 invoice_number=invoice_number,
                 category_name=category_name,
@@ -161,7 +174,8 @@ class RequestService:
     
     def update_request_status(self, request_id: int, new_status: str,
                              comments: Optional[str] = None,
-                             updated_by: str = 'Admin') -> Optional[Request]:
+                             updated_by: str = 'Admin',
+                             approved_amount: Optional[float] = None) -> Optional[Request]:
         """
         Update request status
         
@@ -170,14 +184,15 @@ class RequestService:
             new_status: New status
             comments: Comments
             updated_by: User who updated
+            approved_amount: Optional approved amount override
             
         Returns:
             Optional[Request]: Updated request or None
         """
-        logger.info(f"[ENTER] update_request_status: request_id={request_id}, new_status={new_status}")
+        logger.info(f"[ENTER] update_request_status: request_id={request_id}, new_status={new_status}, approved_amount={approved_amount}")
         try:
             result = self.repository.update_request_status(
-                request_id, new_status, comments, updated_by
+                request_id, new_status, comments, updated_by, approved_amount
             )
             logger.info(f"[EXIT] update_request_status: updated={result is not None}")
             return result

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Invoice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            padding: 40px;
+            width: 800px;
+            height: 1000px;
+        }
+        
+        .invoice-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .invoice-title {
+            text-align: right;
+        }
+        
+        .invoice-title h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .invoice-details {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            font-size: 13px;
+        }
+        
+        .company-info, .bill-to {
+            line-height: 1.8;
+        }
+        
+        .bill-to {
+            text-align: right;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        th {
+            background: #000;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        
+        th:last-child, td:last-child {
+            text-align: right;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+        
+        .empty-row td {
+            border: none;
+            padding: 8px;
+        }
+        
+        .totals {
+            margin-left: auto;
+            width: 300px;
+            font-size: 13px;
+        }
+        
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
+        
+        .totals-row.total {
+            border-top: 2px solid #000;
+            font-weight: bold;
+            font-size: 14px;
+            padding-top: 12px;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">⚽</div>
+                <div class="company-name">ABC Sports<br>Invoice</div>
+            </div>
+            <div class="invoice-title">
+                <h1>INVOICE</h1>
+                <div class="invoice-details">
+                    <div><span class="bold">Invoice #:</span> 12074</div>
+                    <div style="margin-top: 15px;"><span class="bold">Invoice date:</span> 7/19/24</div>
+                    <div><span class="bold">Job Details:</span> Sports Equipment</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="company-info">
+                123 Street Name<br>
+                Denver, CO 80205<br>
+                P: 555-555-5555<br>
+                email@samplebusiness.com
+            </div>
+            <div class="bill-to">
+                <span class="bold">Bill to:</span> Customer Name<br>
+                <span class="bold">Address:</span> 123 Street Name<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Denver, CO 80205<br>
+                <span class="bold">Phone:</span> 555-555-5555
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th style="text-align: center;">Qty</th>
+                    <th style="text-align: right;">Unit price</th>
+                    <th style="text-align: right;">Discount</th>
+                    <th style="text-align: right;">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cricket Bat Professional</td>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: right;">1,500.00</td>
+                    <td style="text-align: right;"></td>
+                    <td style="text-align: right;">1,500.00</td>
+                </tr>
+                <tr>
+                    <td>Cricket Ball Set (6 pcs)</td>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: right;">500.00</td>
+                    <td style="text-align: right;"></td>
+                    <td style="text-align: right;">500.00</td>
+                </tr>
+                <tr>
+                    <td>Batting Gloves Premium</td>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: right;">300.00</td>
+                    <td style="text-align: right;"></td>
+                    <td style="text-align: right;">300.00</td>
+                </tr>
+                <tr class="empty-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">0.00</td>
+                </tr>
+                <tr class="empty-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">0.00</td>
+                </tr>
+                <tr class="empty-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">0.00</td>
+                </tr>
+                <tr class="empty-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">0.00</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="totals">
+            <div class="totals-row">
+                <span>Invoice Subtotal</span>
+                <span>2,300.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Tax Rate</span>
+                <span>6.00%</span>
+            </div>
+            <div class="totals-row">
+                <span>Sales Tax</span>
+                <span>138.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Deposit Received</span>
+                <span>50.00</span>
+            </div>
+            <div class="totals-row total">
+                <span>TOTAL</span>
+                <span>2,388.00</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Please make all checks payable to ABC Sports.<br>
+            <span style="text-decoration: underline;">email@samplebusiness.com</span> | www.samplebusiness123.com
+        </div>
+    </div>
+</body>
+</html>
