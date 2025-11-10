@@ -50,7 +50,8 @@ REJECTED_FOLDER = r"C:\Users\gbs09515\OneDrive - Sella\Documents\Invoices\Reject
 
 # Teams webhook configuration
 TEAMS_WEBHOOK_URL = "https://gruppobancasella.webhook.office.com/webhookb2/a1ef1298-76e7-420d-94e6-e2a1d7a36f3c@91b02abd-daec-432a-8ee4-b5137910aca6/IncomingWebhook/c43396340ac842aea42d0dea3645ae3e/a8c94719-1818-4f8b-b688-a152204a2036/V2FiNcJLFoh_Pq43yFzmDJJQM_TiXMq-Okh9y8VE7mIIs1"
-API_BASE_URL = "http://localhost:5000"
+# Use network IP address so Teams adaptive card buttons work from other devices
+API_BASE_URL = "http://192.168.1.3:5000"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE

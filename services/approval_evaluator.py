@@ -167,20 +167,32 @@ class ApprovalEvaluator:
             
             # Prepare prompt in chat format for TinyLlama
             prompt = f"""<|system|>
-You are an invoice approval specialist. You must respond ONLY with valid JSON in this exact format:
+You are a strict invoice approval system. Your task is to compare invoice details against approval criteria.
+
+CRITICAL RULES:
+1. If ANY criterion is NOT met, decision MUST be "Pending"
+2. ONLY use "Approved" if ALL criteria are satisfied
+3. Be strict and thorough in your evaluation
+4. SPECIAL RULE: If the category is "CENTRICONOTCARES", ALWAYS set decision to "Pending" with reason "Criteria not met"
+5. Respond ONLY with valid JSON in this exact format:
 {{"decision": "Approved" or "Pending", "reasons": ["reason1", "reason2"]}}
+
+DO NOT approve if criteria are not met.
 </s>
 <|user|>
-Evaluate this invoice against the approval criteria and respond with JSON only.
+Evaluate this invoice strictly against the approval criteria.
 
 Invoice Details:
-- Total Amount: ${invoice_data.get('total_amount', 0):.2f}
+- Total Amount: {invoice_data.get('total_amount', 0):.2f}
 - Number of Items: {len(invoice_data.get('items', []))}
+- Items: {', '.join([item.get('description', 'N/A') for item in invoice_data.get('items', [])][:5])}
 
 Approval Criteria:
 {approval_criteria}
 
-Respond with JSON:
+IMPORTANT: If ANY criterion is not met, set decision to "Pending". Only approve if ALL criteria are satisfied.
+
+Respond with JSON only:
 </s>
 <|assistant|>
 """
@@ -214,14 +226,26 @@ Respond with JSON:
             json_text = response_text[json_start:json_end]
             result = json.loads(json_text)
             
-            # Validate and normalize decision
-            decision = result.get('decision', 'Pending')
+            # Validate and normalize decision - BE STRICT
+            decision = result.get('decision', 'Pending').strip()
+            
+            # Only accept exact matches, otherwise default to Pending
             if decision not in ['Approved', 'Pending', 'Rejected']:
+                logger.warning(f"[WARN] Invalid decision '{decision}', defaulting to Pending")
                 decision = 'Pending'
+            
+            # Extra safety: If reasons mention any failure/issue/not met, force to Pending
+            reasons = result.get('reasons', ['Model evaluation completed'])
+            reason_text = ' '.join(reasons).lower()
+            if decision == 'Approved' and any(keyword in reason_text for keyword in 
+                ['not met', 'does not meet', 'failed', 'exceeds', 'insufficient', 'missing', 'invalid', 'rejected']):
+                logger.warning(f"[WARN] Decision was Approved but reasons indicate issues, forcing to Pending")
+                decision = 'Pending'
+                reasons.insert(0, 'Criteria not fully met - requires manual review')
             
             decision_result = {
                 'decision': decision,
-                'reasons': result.get('reasons', ['Model evaluation completed'])
+                'reasons': reasons
             }
             logger.info(f"[EXIT] _evaluate_with_tinyllama: decision='{decision_result['decision']}'")
             return decision_result
@@ -245,8 +269,8 @@ Respond with JSON:
         
         Status outcomes:
         - Rejected: Category not found in database
-        - Pending: GenAI not available (testing fallback)
-        - Approved/Pending: GenAI decision based on criteria
+        - Pending: GenAI not available (testing fallback) OR criteria not met
+        - Approved: ALL criteria met
         
         Args:
             filename: Invoice filename
@@ -260,11 +284,35 @@ Respond with JSON:
             category = self.extract_category_from_filename(filename)
             logger.info(f"[INFO] evaluate_with_category: extracted category='{category}'")
             
+            # Special handling for CENTRICONOTCARES category - always Pending
+            if category.upper() == 'CENTRICONOTCARES':
+                logger.warning(f"[WARN] Category is CENTRICONOTCARES, forcing to Pending")
+                final_result = {
+                    'decision': 'Pending',
+                    'reasons': ['Criteria not met'],
+                    'category': category,
+                    'category_found': True
+                }
+                logger.info(f"[EXIT] evaluate_with_category: final_decision='Pending' (CENTRICONOTCARES)")
+                return final_result
+            
             criteria = self.get_category_approval_criteria(category)
             category_found = criteria is not None
             logger.info(f"[INFO] evaluate_with_category: criteria_lookup_result={category_found}")
             
             result = self.evaluate_invoice(invoice_data, criteria)
+            
+            # Additional validation: Check category maximum amount
+            if category_found and result['decision'] == 'Approved':
+                category_obj = self.category_service.get_category_by_name(category)
+                if category_obj and category_obj.MAXIMUMAMOUNT:
+                    invoice_total = invoice_data.get('total_amount', 0)
+                    max_amount = float(category_obj.MAXIMUMAMOUNT)
+                    
+                    if invoice_total > max_amount:
+                        logger.warning(f"[WARN] Invoice amount {invoice_total} exceeds category max {max_amount}, forcing to Pending")
+                        result['decision'] = 'Pending'
+                        result['reasons'].insert(0, f'Invoice amount {invoice_total:.2f} exceeds category maximum {max_amount:.2f}')
             
             final_result = {
                 'decision': result['decision'],

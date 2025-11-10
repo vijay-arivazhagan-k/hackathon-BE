@@ -46,12 +46,12 @@ TEAMS_WEBHOOK_URL = "https://gruppobancasella.webhook.office.com/webhookb2/..."
 For the action buttons to work correctly:
 
 ```python
-API_BASE_URL = "http://localhost:5000"  # For local testing
+API_BASE_URL = "http://192.168.1.3:5000"  # Network IP - accessible from Teams
 # or
-API_BASE_URL = "https://your-domain.com"  # For production
+API_BASE_URL = "https://your-domain.com"  # For production with HTTPS
 ```
 
-**Important**: The API must be accessible from the network where Teams users are located.
+**Important**: The API must be accessible from the network where Teams users are located. Using `localhost` will NOT work for Teams adaptive cards - you must use the network IP address (e.g., `192.168.1.3`) or a public domain.
 
 ## Workflow
 
